@@ -1,0 +1,9 @@
+<!ELEMENT section (title,expl?,compare?,section*)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT expl (#PCDATA)>
+<!ELEMENT compare (s+)>
+<!ELEMENT s (#PCDATA|a)*>
+<!ELEMENT a (#PCDATA)>
+<!ATTLIST section id ID #REQUIRED>
+<!ATTLIST a href CDATA #REQUIRED>
+<!ATTLIST s id CDATA #REQUIRED>
