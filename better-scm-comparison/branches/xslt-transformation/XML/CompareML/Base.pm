@@ -123,17 +123,21 @@ sub render_section
 
     my $id = $section_elem->getAttribute("id");
 
-    $self->render_section_start(
+    my @args = (
         'depth' => $depth,
         'id' => $id,
         'title_string' => $title_string,
         'expl' => $expl,
         'sub_sections' => \@sub_sections,
+        );
+        
+    $self->render_section_start(
+        @args
     );
     
     if ($compare)
     {
-        $self->render_sys_table_start();
+        $self->render_sys_table_start(@args);
 
         my @systems = ($compare->getChildrenByTagName("s"));
         my %kv = 
