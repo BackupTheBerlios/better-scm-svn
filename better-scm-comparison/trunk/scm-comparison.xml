@@ -843,9 +843,10 @@ TODO:
                     No GUIs are available.
                 </s>
                 <s id="arch">
-                    There's ViewARCH (a web-interface) and 
-                    <a href="http://www.ibe.miee.ru/tlator/">tlator</a> and
-                    possibly others under development.
+                    There is
+                    <a href="http://www.ibe.miee.ru/tlator/">tlator</a>,
+                    <a href="http://www.hpl.hp.com/personal/Yasushi_Saito/octopy/">Octopy</a> 
+                    and possibly others under development.
                 </s>
                 <s id="aegis">
                     There is tkaegis.
