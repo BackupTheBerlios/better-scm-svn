@@ -112,7 +112,7 @@ sub out
     $document_text .= join("", @_);
 }
 
-$toc_text = "<ul class=\"toc\">\n";
+$toc_text .= "<ul class=\"toc\">\n";
 
 sub render_section
 {
