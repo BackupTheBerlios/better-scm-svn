@@ -1047,7 +1047,7 @@ TODO:
                     No GUIs are available.
                 </s>
                 <s id="opencm">
-                    No GUIs are avialable.
+                    No GUIs are available.
                 </s>
                 <s id="perforce">
                     Yes, P4Win and others based on the available libp4 
@@ -1067,7 +1067,7 @@ TODO:
                 </s>
                 <s id="cmsynergy">
                     A couple of GUIs.  A motif-based one
-                    (even on Windows) allows most functionality but is clunky. 
+                    (even on Windows) allows most functionality but is clunky.
                     A nicer Java one allows developer work but not much 
                     administrative stuff. Has an SCCI plug-in, though it 
                     doesn't handle network problems well.
