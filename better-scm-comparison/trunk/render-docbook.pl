@@ -9,7 +9,7 @@ if (! -e "docbook")
     mkdir("docbook");
 }
 
-open O, ">docbook/scm-comparison2.xml";
+open O, ">docbook/scm-comparison.xml";
 
 my $converter = 
     XML::CompareML::DocBook->new(
