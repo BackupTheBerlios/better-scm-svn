@@ -2,7 +2,7 @@ package XML::CompareML::Base;
 
 use strict;
 
-use ScmCompare qw(xml_node_contents_to_string);
+use XML::LibXML;
 
 sub new
 {
@@ -11,6 +11,36 @@ sub new
     bless $self, $class;
     $self->_initialize(@_);
     return $self;
+}
+
+sub xml_node_contents_to_string
+{
+    my $self = shift;
+    my $node = shift;
+    my @child_nodes = $node->childNodes();
+    my $ret = join("", map { $_->toString() } @child_nodes);
+    # Remove leading and trailing space.
+    $ret =~ s!^\s+!!mg;
+    $ret =~ s/\s+$//mg;
+    return $ret;
+}
+
+sub _impl_get_name
+{
+    my $self = shift;
+    my $impl_elem = shift;
+    my ($name_elem) = $impl_elem->getChildrenByTagName("name");
+    return $self->xml_node_contents_to_string($name_elem);
+}
+
+sub get_implementations
+{
+    my $self = shift;
+    my $root_elem = $self->{root_elem};
+    my ($meta_elem) = $root_elem->getChildrenByTagName("meta");
+    my ($implementations_elem) = $meta_elem->getChildrenByTagName("implementations");
+    my @impls_elems = $implementations_elem->getChildrenByTagName("impl");
+    return [ map { +{'id' => $_->getAttribute("id"), 'name' => $self->_impl_get_name($_)} } @impls_elems ]
 }
 
 sub _initialize
@@ -52,7 +82,7 @@ sub process
     my ($contents_elem) = $root_elem->getChildrenByTagName("contents");
     my ($top_section_elem) = $contents_elem->getChildrenByTagName("section");
 
-    my @impls = @{ScmCompare::get_implementations($root_elem)};
+    my @impls = @{$self->get_implementations()};
     my %impls_to_indexes = (map { $impls[$_]->{'id'} => $_ } (0 .. $#impls));
     my %names = (map { $_->{'id'} => $_->{'name'} } @impls);
 

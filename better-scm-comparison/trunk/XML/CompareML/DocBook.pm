@@ -1,7 +1,5 @@
 package XML::CompareML::DocBook;
 
-use ScmCompare qw(xml_node_contents_to_string);
-
 use XML::LibXML::Common qw(:w3c);
 
 use base 'XML::CompareML::Base';
@@ -56,7 +54,7 @@ sub render_section_start
 
     if ($expl)
     {
-        $self->out("<para>\n" . xml_node_contents_to_string($expl) . "\n</para>\n");
+        $self->out("<para>\n" . $self->xml_node_contents_to_string($expl) . "\n</para>\n");
     }
 }
 

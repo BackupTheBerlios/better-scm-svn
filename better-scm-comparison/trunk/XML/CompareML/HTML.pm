@@ -1,7 +1,5 @@
 package XML::CompareML::HTML;
 
-use ScmCompare qw(xml_node_contents_to_string);
-
 use base 'XML::CompareML::Base';
 
 sub print_header
@@ -112,7 +110,7 @@ sub render_section_start
 
     if ($expl)
     {
-        $self->out("<p class=\"expl\">\n" . xml_node_contents_to_string($expl) . "\n</p>\n");
+        $self->out("<p class=\"expl\">\n" . $self->xml_node_contents_to_string($expl) . "\n</p>\n");
     }
 
     if ($depth == 0)
@@ -137,7 +135,7 @@ sub render_sys_table_start
 sub render_s_elem
 {
     my ($self, $s_elem) = @_;
-    return xml_node_contents_to_string($_);
+    return $self->xml_node_contents_to_string($s_elem);
 }
 
 sub render_sys_table_row
