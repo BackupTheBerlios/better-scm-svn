@@ -753,10 +753,8 @@ TODO:
                     that sports a suitable Internet service.
                 </s>
                 <s id="monotone">
-                    Very good. Executable is portable across all UNIXes. It
-                    was not yet verified to compile correctly on Windows,
-                    but the author maintains that it should not pose a 
-                    problem to make it portable to it.
+                    Excellent. Executable is portable across all UNIXes and
+                    Win32.
                 </s>
                 <s id="opencm">
                     Good. Portable across all UNIX systems.
