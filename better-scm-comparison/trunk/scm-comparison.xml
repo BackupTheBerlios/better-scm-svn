@@ -121,7 +121,12 @@ TODO:
                     moving the files and deleting the old one. 
                     Moved file histories are preserved.
                 </s>
-                <s id="vss">Yes. Renames are supported.</s>
+                <s id="vss">
+                    Affects the whole history, it's like renaming a 
+                    file in the CVS repository. There is a kludgy workaround 
+                    using "share-rename,move,delete" that gets what you 
+                    want.
+                </s>
                 <s id="cmsynergy">Yes. Renames are supported.</s>
            </compare>
         </section>
@@ -186,7 +191,10 @@ TODO:
                 <s id="co-op">Repositories are always replicated on local machines. 
                     There is no central server.
                 </s>
-                <s id="vss">Unknown, probably not.</s>
+                <s id="vss">
+                    Not directly possible with the included GUI or 
+                    command line tools; ssarc and ssrestor might be useable
+                </s>
                 <s id="cmsynergy">Yes, as long as you have the (more expensive) Distributed package.</s>
             </compare>
         </section>
@@ -214,7 +222,10 @@ TODO:
                 <s id="co-op">It's a peer-to-peer system, 
                     which keeps all replicas of the repository in sync.
                 </s>
-                <s id="vss">Unknown, probably not.</s>
+                <s id="vss">
+                    Not directly possible with the included GUI or 
+                    command line tools; ssarc and ssrestor might be useable
+                </s>
                 <s id="cmsynergy">Yes, as long as you have the (more expensive) Distributed package.</s>
             </compare>
         </section>
@@ -272,8 +283,10 @@ TODO:
                     Subsequent access to that project is not controlled.
                 </s>
                 <s id="vss">
-                    Has a permission system for the directory/project level. 
-                    Managed using the admin module.
+                    Project specific permissions (read, write, delete, destroy)
+                    can be set per user; but see "Networking Support":
+                    this makes "Repository Permissions" a hindrance to 
+                    accidental damage but cannot prevent intentional damage.
                 </s>
                 <s id="cmsynergy">No, though a single server can serve many repositories.</s>
             </compare>
@@ -615,7 +628,11 @@ TODO:
                     synchronization. For e-mail, requires MAPI-compliant 
                     e-mail client.
                 </s>
-                <s id="vss">Very good - an installation package which does the work.</s>
+                <s id="vss">
+                    Very good - an installation package which does the work.
+                    When you create a repository it installs the exe's in a 
+                    directory and you can run them from there if you need to.
+                </s>
                 <s id="cmsynergy">
                     Medium.  There is a detailed install guide for
                 	setting it up using a binary kit and a set of scripts.  However
@@ -757,8 +774,12 @@ TODO:
                     copying files between shared directories.
                 </s>
                 <s id="vss">
-                    Networked using the Windows File-Sharing SMB Protocol 
-                    (now sometimes called CIFS).
+                    VSS uses a Windows network share which has to be writable
+                    for the VSS users (since this means doubling maintenance
+                    for new users). Add user in VSS and to share permissions. 
+                    the share is most often world-writable, as is the default
+                    when creating a share) It does not perform well over a 
+                    slow network connection.
                 </s>
                 <s id="cmsynergy">Good (single TCP/IP socket)</s>
             </compare>
@@ -871,7 +892,10 @@ TODO:
                 <s id="co-op">Since this functionality is always 
                     available locally, there is no need for web interface.
                 </s>
-                <s id="vss">Possibly.</s>
+                <s id="vss">
+                    It is possible to code one using the API, but no official
+                    or third-party one exists.
+                </s>
                 <s id="cmsynergy">Possibly.</s>
             </compare>
         </section>
@@ -925,8 +949,9 @@ TODO:
                 </s>
                 <s id="co-op">The system is GUI-based by design.</s>
                 <s id="vss">
-                    Single GUI comes with it, plus SCCI plug-in for 
-                    Developer Studio.
+                    Standalone GUI comes with it, plus SCCI plug-in for 
+                    MS Visual Developer Studio. There is an Eclipse 
+                    plug-in.
                 </s>
                 <s id="cmsynergy">
                     A couple of GUIs.  A motif-based one
@@ -980,7 +1005,10 @@ TODO:
                 (members who don't make changes).
                 $159 per workstation.
             </s>
-            <s id="vss">Comes with MSDN.</s>
+            <s id="vss">
+                VSS Ships with MSDN, and can also be purchased
+                stanalone or with other tools.
+            </s>
             <s id="cmsynergy">
                 Prices negotiable with salesman.
                 Server is typically roughly 20,000 British Pounds.  
