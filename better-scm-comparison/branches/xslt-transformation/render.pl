@@ -4,7 +4,7 @@ use strict;
 
 use XML::LibXML;
 
-use ScmCompare;
+use ScmCompare qw(xml_node_contents_to_string);
 
 my $parser = XML::LibXML->new();
 
@@ -64,6 +64,8 @@ EOF
 }
 my $root_elem = $dom->getDocumentElement();
 
+my ($contents_elem) = $root_elem->getChildrenByTagName("contents");
+my ($top_section_elem) = $contents_elem->getChildrenByTagName("section");
 open O, ">comparison.html";
 print O <<"EOF";
 <?xml version="1.0" encoding="iso-8859-1"?>
@@ -79,7 +81,7 @@ $style
 <body>
 EOF
 
-my @impls = @{ScmCompare::get_implementations()};
+my @impls = @{ScmCompare::get_implementations($root_elem)};
 
 my %impls_to_indexes = (map { $impls[$_]->{'id'} => $_ } (0 .. $#impls));
 
@@ -100,17 +102,6 @@ sub sorter
         die "Unknown system $impl";
     }
     return $impls_to_indexes{$impl};
-}
-
-sub my_to_string
-{
-    my $node = shift;
-    my @child_nodes = $node->childNodes();
-    my $ret = join("", map { $_->toString() } @child_nodes);
-    # Remove leading and trailing space.
-    $ret =~ s!^\s+!!mg;
-    $ret =~ s/\s+$//mg;
-    return $ret;
 }
 
 my $document_text = "";
@@ -141,7 +132,7 @@ sub render_section
 
     if ($expl)
     {
-        out("<p class=\"expl\">\n" . my_to_string($expl) . "\n</p>\n");
+        out("<p class=\"expl\">\n" . xml_node_contents_to_string($expl) . "\n</p>\n");
     }
 
     if ($depth == 0)
@@ -153,7 +144,11 @@ sub render_section
     {
         out("<table class=\"compare\">\n");
         my @systems = ($compare->getChildrenByTagName("s"));
-        my %kv = (map { $_->getAttribute("id") => my_to_string($_) } @systems);
+        my %kv = 
+            (map 
+                { $_->getAttribute("id") => xml_node_contents_to_string($_) } 
+                @systems
+            );
         my @keys_sorted = (sort { sorter($a) <=> sorter($b) } keys(%kv));
         foreach my $k (@keys_sorted)
         {
@@ -183,7 +178,7 @@ sub render_section
     $toc_text .= "</li>\n"
 }
 
-&render_section($root_elem);
+&render_section($top_section_elem);
 
 $toc_text .= "</ul>\n";
 

@@ -1,3 +1,9 @@
+<!ELEMENT comparison (meta,contents)>
+<!ELEMENT meta (implementations)>
+<!ELEMENT implementations (impl+)>
+<!ELEMENT impl (name)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT contents (section)>
 <!ELEMENT section (title,expl?,compare?,section*)>
 <!ELEMENT title (#PCDATA)>
 <!ELEMENT expl (#PCDATA)>
@@ -7,3 +13,4 @@
 <!ATTLIST section id ID #REQUIRED>
 <!ATTLIST a href CDATA #REQUIRED>
 <!ATTLIST s id CDATA #REQUIRED>
+<!ATTLIST impl id CDATA #REQUIRED>
