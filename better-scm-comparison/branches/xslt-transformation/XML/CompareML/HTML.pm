@@ -105,6 +105,7 @@ sub render_section_start
     my $id = $args{id};
     my $title_string = $args{title_string};
     my $expl = $args{expl};
+    my $sub_sections = $args{sub_sections};
 
     my $d = $depth+1;
     $self->out("<h$d><a name=\"$id\" id=\"$id\">$title_string</a></h$d>\n");
@@ -118,9 +119,16 @@ sub render_section_start
     {
         $self->out("<<<TOC>>>\n");
     }
+
+    $self->toc_out("<li><a href=\"#$id\">$title_string</a>");
+
+    if (@$sub_sections)
+    {
+        $self->toc_out("\n<ul>\n");
+    }
 }
 
-sub render_table_start
+sub render_sys_table_start
 {
     my $self = shift;
     $self->out("<table class=\"compare\">\n");
@@ -140,5 +148,24 @@ sub render_sys_table_row
         "<tr>\n<td class=\"sys\">" . $args{name} . "</td>\n" .
         "<td class=\"desc\">\n" . $args{desc} . "\n</td>\n</tr>\n"
     );
+}
+
+sub render_sys_table_end
+{
+    my $self = shift;
+    $self->out("</table>\n");
+}
+
+sub render_section_end
+{
+    my ($self, %args) = @_;
+
+    my $sub_sections = $args{sub_sections};
+    
+    if (@$sub_sections)
+    {
+        $self->toc_out("\n</ul>\n");
+    }
+    $self->toc_out("</li>\n");
 }
 1;

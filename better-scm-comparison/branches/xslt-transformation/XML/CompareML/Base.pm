@@ -117,6 +117,7 @@ sub render_section
     my ($expl) = $section_elem->getChildrenByTagName("expl");
     my ($title) = $section_elem->getChildrenByTagName("title");
     my ($compare) = $section_elem->getChildrenByTagName("compare");
+    my @sub_sections = $section_elem->getChildrenByTagName("section");
 
     my $title_string = $title->string_value();
 
@@ -127,11 +128,12 @@ sub render_section
         'id' => $id,
         'title_string' => $title_string,
         'expl' => $expl,
+        'sub_sections' => \@sub_sections,
     );
     
     if ($compare)
     {
-        $self->render_table_start();
+        $self->render_sys_table_start();
 
         my @systems = ($compare->getChildrenByTagName("s"));
         my %kv = 
@@ -147,17 +149,9 @@ sub render_section
                 'desc' => $kv{$k},
             );
         }
-        $self->out("</table>\n");
+        $self->render_sys_table_end();
     }
 
-    my @sub_sections = $section_elem->getChildrenByTagName("section");
-
-    $self->toc_out("<li><a href=\"#$id\">$title_string</a>");
-
-    if (@sub_sections)
-    {
-        $self->toc_out("\n<ul>\n");
-    }
     foreach my $sub (@sub_sections)
     {
         $self->render_section(
@@ -166,11 +160,13 @@ sub render_section
             );
     }
 
-    if (@sub_sections)
-    {
-        $self->toc_out("\n</ul>\n");
-    }
-    $self->toc_out("</li>\n");
+    $self->render_section_end(
+        'depth' => $depth,
+        'id' => $id,
+        'title_string' => $title_string,
+        'expl' => $expl,
+        'sub_sections' => \@sub_sections,
+    );
 }
 
 1;
