@@ -16,6 +16,12 @@ sub print_header
 <article>
 
 EOF
+    if (defined($self->timestamp()))
+    {
+        print {*{$o}} 
+            "<articleinfo><date>" . $self->timestamp() .
+            "</date></articleinfo>";
+    }
 }
 
 # Do Nothing
