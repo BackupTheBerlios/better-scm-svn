@@ -44,6 +44,9 @@ TODO:
             <impl id="subversion">
                 <name>Subversion</name>
             </impl>
+            <impl id="superversion">
+                <name>Superversion</name>
+            </impl>
             <impl id="svk">
                 <name>svk</name>
             </impl>
@@ -80,6 +83,7 @@ TODO:
                 <s id="arch">Yes. Commits are atomic.</s>
                 <s id="darcs">Yes. Commits are atomic.</s>
                 <s id="subversion">Commits are atomic.</s>
+                <s id="superversion">Commits are atomic.</s>
                 <s id="svk">Commits are atomic.</s>
                 <s id="aegis">Commits are atomic.</s>
                 <s id="bitkeeper">Yes (but need to verify)</s>
@@ -105,6 +109,7 @@ TODO:
                     may break history in two.
                 </s>
                 <s id="subversion">Yes. Renames are supported.</s>
+                <s id="superversion">No. Renames are not supported.</s>
                 <s id="svk">Yes. Renames are supported.</s>
                 <s id="arch">Yes. Renames are supported.</s>
                 <s id="darcs">Yes. Renames are supported.</s>
@@ -148,6 +153,7 @@ TODO:
                 <s id="subversion">Yes. And it's a very cheap operation (O(1)) that 
                     is also utilized for branching
                 </s>
+                <s id="superversion">No. Copies are not supported.</s>
                 <s id="svk">Yes. Same as subversion.</s>
                 <s id="arch">No. Copies of files and directory structures are
                     not supported. 
@@ -189,6 +195,7 @@ TODO:
                 <s id="subversion">Indirectly, by using Chia-Ling Kao's SVN::Mirror 
                     add-on or Shlomi Fish' svn-push utility.
                 </s>
+                <s id="superversion">Yes.</s>
                 <s id="svk">Yes.</s>
                 <s id="arch">Yes.</s>
                 <s id="darcs">Yes.</s>
@@ -219,6 +226,7 @@ TODO:
                 <s id="subversion">Yes, using either Chia-Ling Kao's SVN::Mirror
                     script or the svn-push utility by Shlomi Fish.
                 </s>
+                <s id="superversion">No.</s>
                 <s id="svk">Yes.</s>
                 <s id="arch">Yes.</s>
                 <s id="darcs">Yes.</s>
@@ -270,6 +278,9 @@ TODO:
                     Yes. The WebDAV-based service supports defining HTTP
                     permissions for various directories of the repository.
                 </s>
+                <s id="superversion">
+                    No.
+                </s>
                 <s id="svk">
                     Same as subversion.
                 </s>
@@ -318,6 +329,9 @@ TODO:
                 <s id="subversion">Partial support. There are implicit 
                     changeset that are generated on each commit.
                 </s>
+                <s id="superversion">Partial support. Changes are grouped into changesets,
+                    but cannot be cancelled invididually yet.
+                </s>
                 <s id="svk">Same as subversion.
                 </s>
                 <s id="aegis">
@@ -362,6 +376,7 @@ TODO:
             <compare>
                 <s id="cvs">Yes. cvs annotate</s>
                 <s id="subversion">Yes. (svn blame)</s>
+                <s id="superversion">No.</s>
                 <s id="svk">Yes. (svk blame)</s>
                 <s id="bitkeeper">Yes. (bk annotate)</s>
                 <s id="arch">Not in the command line client, but ViewARCH,
@@ -400,6 +415,7 @@ TODO:
             <compare>
                 <s id="cvs">Yes.</s>
                 <s id="subversion">Yes.</s>
+                <s id="superversion">No.</s>
                 <s id="svk">Yes.</s>
                 <s id="bitkeeper">No. All changes are made repository-wide.</s>
                 <s id="arch">
@@ -446,6 +462,8 @@ TODO:
             <compare>
                 <s id="cvs">Yes. Using cvs diff</s>
                 <s id="subversion">Yes. Using svn diff</s>
+                <s id="superversion">Yes. Local changes are detected and shown immediately. Changes can be
+                  collected in a local buffer before being committed to the repository.</s>
                 <s id="svk">Yes. Using svk diff</s>
                 <s id="bitkeeper">Yes. Using bk diff.</s>
                 <s id="arch">
@@ -482,6 +500,7 @@ TODO:
             <compare>
                 <s id="cvs">No. Commit messages are per change.</s>
                 <s id="subversion">No. There is no such feature.</s>
+                <s id="superversion">Yes.</s>
                 <s id="svk">No. There is no such feature.</s>
                 <s id="bitkeeper">Yes. It is possible to have a per-file
                     commit message</s>
@@ -535,6 +554,11 @@ TODO:
                     DocBook/XML and so is convertible to many different 
                     formats. The command-line client also provides a good 
                     online help system that can be used as a reference.
+                </s>
+                <s id="superversion">
+                    Fairly poor. There are two tutorials, but there is no
+                    reference. Installing and getting started with the GUI
+                    is very easy though.
                 </s>
                 <s id="svk">
                     Very poor at this moment.
@@ -640,6 +664,10 @@ TODO:
                     library. Installation of the components is quite
                     straightforward, but will require some work.
                 </s>
+                <s id="superversion">
+                    If Java 1.4 is installed, deployment of Superversion
+                    usually takes two clicks.
+                </s>
                 <s id="svk">
                     In addition to installing subversion, users are required
                     to install the subversion perl bindings and a few modules
@@ -699,6 +727,11 @@ TODO:
                 <s id="subversion">
                     A CVS-like command set which is easy to get used to
                     for CVS-users.
+                </s>
+                <s id="superversion">
+                    There is little need to memorize a command set because
+                    all actions take place in a GUI. A part of the terminology
+                    used in the application is borrowed from CVS.
                 </s>
                 <s id="svk">
                     A CVS-like command set which is easy to get used to
@@ -776,7 +809,7 @@ TODO:
                     filesystem server. Currently supported protocols include
                     FTP, SFTP, WebDAV (remote file access over HTTP), 
                     as well as any remote filesystem protocol (NFS, SMB).
-                <Very /s>
+                </s>
                 <s id="darcs">
                     Good. Darcs supports getting patches over HTTP, and
                     getting and sending patches over SSH and email.
@@ -786,6 +819,11 @@ TODO:
                     WebDAV+DeltaV (which is HTTP or HTTPS based) as its 
                     underylying protocol, or its own proprietary protocol
                     that can be channeled over an SSH connection.
+                </s>
+                <s id="superversion">
+                    Good. Network support based on RMI is integrated
+                    seamlessly. Encryption and HTTP tunnelling are planned
+                    for the near future.
                 </s>
                 <s id="svk">
                     Very good. svk uses SVN::Mirror to retrieve remote
@@ -850,6 +888,11 @@ TODO:
                 <s id="subversion">
                     Excellent. Clients and Servers work on UNIX, 
                     Windows and Mac OS X.
+                </s>
+                <s id="superversion">
+                    Excellent. Clients and servers work on any Java
+                    1.4-compatible platform. There is official support
+                    for Windows, Linux and OS/2.
                 </s>
                 <s id="svk">
                     Good. Clients requires subversion and its perl bindings.
@@ -930,6 +973,7 @@ TODO:
                     from that, the Subversion Apache service provides a
                     rudimentary web-interface.
                     </s>
+                <s id="superversion">No.</s>
                 <s id="svk">Yes. Same as Subversion.</s>
                 <s id="arch">
                     There's <a href="http://arch.bluegate.org/viewarch.html">ViewARCH</a>, and 
@@ -977,6 +1021,9 @@ TODO:
                     GUIs: RapidSVN (cross-platform), ViewCVS (web),
                     TortoiseSVN (Windows Explorer plug-in), Jsvn (Java), etc.
                     Most of them are still under development.
+                </s>
+                <s id="superversion">
+                    A GUI is integrated.
                 </s>
                 <s id="svk">
                     No GUIs are available.
@@ -1048,6 +1095,9 @@ TODO:
             </s>
             <s id="subversion">
                 Apache/BSD-style license. (open-source)
+            </s>
+            <s id="superversion">
+                GNU GPL (open-source)
             </s>
             <s id="svk">Perl License. (open source)</s>
             <s id="monotone">GNU GPL (open source)</s>
