@@ -286,7 +286,7 @@ TODO:
             </expl>
             <compare>
                 <s id="cvs">Yes. cvs annotate</s>
-                <s id="subversion">Partial for the time being (svn blame)</s>
+                <s id="subversion">Yes. (svn blame)</s>
                 <s id="svk">Yes. (svk blame)</s>
                 <s id="bitkeeper">Yes. (bk annotate)</s>
                 <s id="arch">Not in the command line client, but ViewARCH,
@@ -794,11 +794,22 @@ TODO:
             </expl>
             <compare>
                 <s id="cvs">Yes. 
-                    <a href="http://viewcvs.sourceforge.net/">ViewCVS</a>.
+                    WebCVS, <a href="http://viewcvs.sourceforge.net/">ViewCVS</a>,
+                    and <a href="http://www.horde.org/chora/">Chora</a>.
                 </s>
                 <s id="bitkeeper">Yes. Its own built-in web-interface.</s>
-                <s id="subversion">Yes. ViewCVS and SVN::Web.</s>
-                <s id="svk">Yes. ViewCVS and SVN::Web.</s>
+                <s id="subversion">Yes. 
+                    <a href="http://viewcvs.sourceforge.net/">ViewCVS</a>, 
+                    <a href="http://freshmeat.net/projects/svnweb/">SVN::Web</a>,
+                    <a href="http://websvn.tigris.org/">WebSVN</a>, 
+                    <a href="http://viewsvn.berlios.de/">ViewSVN</a>,
+                    <a href="http://www.outoforder.cc/projects/apache/mod_svn_view/">mod_svn_view</a>
+                    and <a href="http://www.horde.org/chora/">Chora</a>. 
+                    Aside
+                    from that, the Subversion Apache service provides a
+                    rudimentary web-interface.
+                    </s>
+                <s id="svk">Yes. Same as Subversion.</s>
                 <s id="arch">
                     There's <a href="http://arch.bluegate.org/viewarch.html">ViewARCH</a>, and 
                     <a href="http://migo.sixbit.org/software/archzoom/">ArchZoomM</a>
