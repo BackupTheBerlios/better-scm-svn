@@ -6,7 +6,7 @@ use XML::LibXML;
 
 use XML::LibXML::Common qw(:w3c);
 
-use ScmCompare;
+use ScmCompare qw(xml_node_contents_to_string);
 
 my $parser = XML::LibXML->new();
 
@@ -15,6 +15,8 @@ $parser->validation(1);
 my $dom = $parser->parse_file("./scm-comparison.xml");
 
 my $root_elem = $dom->getDocumentElement();
+my ($contents_elem) = $root_elem->getChildrenByTagName("contents");
+my ($top_section_elem) = $contents_elem->getChildrenByTagName("section");
 
 if (! -e "docbook")
 {
@@ -30,7 +32,7 @@ print O <<"EOF";
 
 EOF
 
-my @impls = @{ScmCompare::get_implementations()};
+my @impls = @{ScmCompare::get_implementations($root_elem)};
 my %impls_to_indexes = (map { $impls[$_]->{'id'} => $_ } (0 .. $#impls));
 
 my %names = (map { $_->{'id'} => $_->{'name'} } @impls);
@@ -50,17 +52,6 @@ sub sorter
         die "Unknown system $impl";
     }
     return $impls_to_indexes{$impl};
-}
-
-sub my_to_string
-{
-    my $node = shift;
-    my @child_nodes = $node->childNodes();
-    my $ret = join("", map { $_->toString() } @child_nodes);
-    # Remove leading and trailing space.
-    $ret =~ s!^\s+!!mg;
-    $ret =~ s/\s+$//mg;
-    return $ret;
 }
 
 sub html_to_docbook
@@ -139,7 +130,7 @@ sub render_section
 
     if ($expl)
     {
-        out("<para>\n" . my_to_string($expl) . "\n</para>\n");
+        out("<para>\n" . xml_node_contents_to_string($expl) . "\n</para>\n");
     }
 
     if ($compare)
@@ -177,7 +168,7 @@ sub render_section
     }    
 }
 
-&render_section($root_elem);
+&render_section($top_section_elem);
 
 print O $document_text;
 
