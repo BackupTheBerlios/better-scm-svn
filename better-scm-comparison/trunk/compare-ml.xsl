@@ -1,6 +1,13 @@
 <?xml version="1.0" ?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
+<!-- 
+Initiating match-template.
+-->
+<xsl:template match="/">
+<xsl:apply-templates/>
+</xsl:template>    
+
 <xsl:template match="comparison">
 <html>
 <head>
@@ -42,12 +49,37 @@ ul.toc
 </style>
 </head>
 <body>
+<ul>
+<xsl:apply-templates select="//comparison/contents/section">
+<xsl:with-param name="toc" value="1" />
+</xsl:apply-templates>
+</ul>
+<!--
 <xsl:apply-templates select="//comparison/contents/section" />
-</body>
+-->
+</body>http://rafb.net/paste/results/lTurEi25.html
 </html>
 </xsl:template>
 
 <xsl:template match="section">
+<xsl:param name="toc" />
+<xsl:choose>
+<xsl:when test="$toc = '1'">
+<li>
+<a href="hoola">
+<!--<xsl:attribute name="href" select="@id" />
+<xsl:value-of select="title" /> -->
+</a>
+<xsl:if test="section">
+<ul>
+<xsl:apply-templates select="section">
+<xsl:with-param name="toc" value="1" />
+</xsl:apply-templates>
+</ul>
+</xsl:if>
+</li>
+</xsl:when>
+<xsl:otherwise>
 <xsl:element name="h{count(ancestor-or-self::section)}"><xsl:value-of select="title" /></xsl:element>
 <xsl:apply-templates select="expl" />
 <xsl:apply-templates select="section" />
@@ -56,6 +88,8 @@ ul.toc
 <xsl:apply-templates select="compare" />
 </table>
 </xsl:if>
+</xsl:otherwise>
+</xsl:choose>
 </xsl:template>
 
 <xsl:template match="expl">
