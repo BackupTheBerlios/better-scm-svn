@@ -693,9 +693,7 @@ TODO:
                     limited.
                 </s>
                 <s id="monotone">
-                    Very good. System is transport agnostic and speaks HTTP
-                    and NNTP out of the box. SMTP support will be added
-                    soon.
+                    Good. Uses a custom protocol called "netsync".
                 </s>
                 <s id="opencm">
                     Good. Uses its own proprietary client/server protocol.
