@@ -1,4 +1,4 @@
-<?xml version='1.0'?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE section SYSTEM "comparison.dtd">
 <!--
 TODO:
@@ -226,7 +226,10 @@ TODO:
                     requires administrator's approval.
                     Subsequent access to that project is not controlled.
                 </s>
-                <s id="vss">No.</s>
+                <s id="vss">
+                    Has a permission system for the directory/project level. 
+                    Managed using the admin module.
+                </s>
                 <s id="cmsynergy">No, though a single server can serve many repositories.</s>
             </compare>
         </section>
@@ -710,7 +713,9 @@ TODO:
                 <s id="co-op">Uses the simplest LAN interface: 
                     copying files between shared directories.
                 </s>
-                <s id="vss">Well, it's there. It sort of works usually.  Not sure what it uses.
+                <s id="vss">
+                    Networked using the Windows File-Sharing SMB Protocol 
+                    (now sometimes called CIFS).
                 </s>
                 <s id="cmsynergy">Good (single TCP/IP socket)</s>
             </compare>
@@ -769,7 +774,11 @@ TODO:
                     haven't begun yet.
                 </s>
                 <s id="co-op">Windows only: starting with Win95.</s>
-                <s id="vss">Windows only.</s>
+                <s id="vss">
+                    The Microsoft Product is Windows only. 
+                    <a href="http://www.mainsoft.com/">MainSoft</a>
+                    ships a version of it for some UNIX platforms.
+                </s>
                 <s id="cmsynergy">
                     Very good - various flavours of Unix,
                     Windows (only NT family for the server), VMS, and 
