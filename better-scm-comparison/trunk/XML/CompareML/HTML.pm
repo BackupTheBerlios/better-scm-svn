@@ -51,6 +51,7 @@ ul.toc
     padding : 0.3em;
 }
 :link:hover { background-color : yellow }
+tt { color : #8A2BE2 /* The BlueViolet Color */ }
 -->
 </style>
 EOF
@@ -115,6 +116,10 @@ sub render_section_start
 
     if ($depth == 0)
     {
+        if (defined($self->timestamp()))
+        {
+            $self->out("<p><b>Timestamp:</b> <tt>" . $self->timestamp() . "</tt></p>");
+        }
         $self->out("<<<TOC>>>\n");
     }
 

@@ -4,6 +4,10 @@ use strict;
 
 use XML::LibXML;
 
+use base qw(Class::Accessor);
+
+__PACKAGE__->mk_accessors(qw(timestamp));
+
 sub new
 {
     my $class = shift;
@@ -41,6 +45,21 @@ sub get_implementations
     my ($implementations_elem) = $meta_elem->getChildrenByTagName("implementations");
     my @impls_elems = $implementations_elem->getChildrenByTagName("impl");
     return [ map { +{'id' => $_->getAttribute("id"), 'name' => $self->_impl_get_name($_)} } @impls_elems ]
+}
+
+sub get_timestamp
+{
+    my $self = shift;
+    my $root_elem = $self->{root_elem};
+    my @nodes = $root_elem->findnodes("/comparison/meta/timestamp");
+    if (@nodes)
+    {
+        return $self->xml_node_contents_to_string($nodes[0]);
+    }
+    else
+    {
+        return undef;
+    }
 }
 
 sub _initialize
@@ -89,6 +108,7 @@ sub process
     $self->{impls} = \@impls;
     $self->{impls_to_indexes} = \%impls_to_indexes;
     $self->{impl_names} = \%names;
+    $self->timestamp($self->get_timestamp());
 
     $self->{document_text} = "";
     $self->{toc_text} = "";
