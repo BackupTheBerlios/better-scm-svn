@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE section SYSTEM "comparison.dtd">
+<!DOCTYPE comparison SYSTEM "comparison.dtd">
 <!--
 TODO:
 
@@ -7,6 +7,51 @@ TODO:
 * Add IDE integration.
 * Add Speed (?)
 -->
+<comparison>
+    <meta>
+        <implementations>
+            <impl id="cvs">
+                <name>CVS</name>
+            </impl>
+            <impl id="aegis">
+                <name>Aegis</name>
+            </impl>
+            <impl id="arch">
+                <name>Arch</name>
+            </impl>
+            <impl id="bitkeeper">
+                <name>BitKeeper</name>
+            </impl>
+            <impl id="cmsynergy">
+                <name>CMSynergy</name>
+            </impl>
+            <impl id="co-op">
+                <name>Co-Op</name>
+            </impl>
+            <impl id="monotone">
+                <name>Monotone</name>
+            </impl>
+            <impl id="opencm">
+                <name>OpenCM</name>
+            </impl>
+            <impl id="perforce">
+                <name>Perforce</name>
+            </impl>
+            <impl id="subversion">
+                <name>Subversion</name>
+            </impl>
+            <impl id="svk">
+                <name>svk</name>
+            </impl>
+            <impl id="vesta">
+                <name>Vesta</name>
+            </impl>
+            <impl id="vss">
+                <name>Visual SourceSafe</name>
+            </impl>
+        </implementations>
+    </meta>
+    <contents>
 <section id="main">
     <title>Version Control System Comparison</title>
     <expl>
@@ -945,3 +990,5 @@ TODO:
         </compare>
     </section>
 </section>
+    </contents>
+</comparison>
