@@ -10,7 +10,17 @@ comparison.dtd: gen-dtd.pl
 comparison.html: render.pl scm-comparison.xml comparison.dtd $(PERL_MODULES)
 	perl render.pl
 
-FILES = comparison.html render.pl render-docbook.pl scm-comparison.xml bk-license.html Makefile comparison.dtd gen-dtd.pl $(PERL_MODULES)
+FILES = bk-license.html \
+		compare-ml.xsl \
+		comparison.dtd \
+		comparison.html \
+		Makefile \
+		gen-dtd.pl \
+		render.pl \
+		render-docbook.pl \
+		scm-comparison.xml
+
+FILES += $(PERL_MODULES)
 
 docbook/scm-comparison.xml: scm-comparison.xml render-docbook.pl $(PERL_MODULES)
 	perl render-docbook.pl
