@@ -29,6 +29,9 @@ TODO:
             <impl id="co-op">
                 <name>Co-Op</name>
             </impl>
+            <impl id="darcs">
+                <name>Darcs</name>
+            </impl>
             <impl id="monotone">
                 <name>Monotone</name>
             </impl>
@@ -75,6 +78,7 @@ TODO:
             <compare>
                 <s id="cvs">No. CVS commits are not atomic.</s>
                 <s id="arch">Yes. Commits are atomic.</s>
+                <s id="darcs">Yes. Commits are atomic.</s>
                 <s id="subversion">Commits are atomic.</s>
                 <s id="svk">Commits are atomic.</s>
                 <s id="aegis">Commits are atomic.</s>
@@ -103,6 +107,7 @@ TODO:
                 <s id="subversion">Yes. Renames are supported.</s>
                 <s id="svk">Yes. Renames are supported.</s>
                 <s id="arch">Yes. Renames are supported.</s>
+                <s id="darcs">Yes. Renames are supported.</s>
                 <s id="bitkeeper">Yes. Renames are supported.</s>
                 <s id="aegis">Yes. Renames are supported.</s>
                 <s id="monotone">Yes. Renames are supported.</s>
@@ -147,6 +152,9 @@ TODO:
                 <s id="arch">No. Copies of files and directory structures are
                     not supported. 
                 </s>
+                <s id="darcs">No. Copies of files and directory structures are
+                    not supported. 
+                </s>
                 <s id="bitkeeper">
                     Yes. Copies are supported.
                 </s>
@@ -183,6 +191,7 @@ TODO:
                 </s>
                 <s id="svk">Yes.</s>
                 <s id="arch">Yes.</s>
+                <s id="darcs">Yes.</s>
                 <s id="bitkeeper">Yes.</s>
                 <s id="aegis">Yes.</s>
                 <s id="monotone">Yes.</s>
@@ -212,6 +221,7 @@ TODO:
                 </s>
                 <s id="svk">Yes.</s>
                 <s id="arch">Yes.</s>
+                <s id="darcs">Yes.</s>
                 <s id="bitkeeper">Yes.</s>
                 <s id="aegis">Yes.</s>
                 <s id="monotone">Yes.</s>
@@ -245,6 +255,9 @@ TODO:
                     Yes. It is possible to define permissions on access to
                     different parts of a remote repository based on the 
                     permission systems of the underlying protocol.
+                </s>
+                <s id="darcs">
+                    No.
                 </s>
                 <s id="aegis">
                     Yes. Aegis relies on the UNIX permissions system to
@@ -316,6 +329,9 @@ TODO:
                 <s id="arch">
                     Yes. Changesets are supported.
                 </s>
+                <s id="darcs">
+                    Yes. Changesets are supported.
+                </s>
                 <s id="monotone">
                     Yes. Changesets are supported.
                 </s>
@@ -350,6 +366,7 @@ TODO:
                 <s id="bitkeeper">Yes. (bk annotate)</s>
                 <s id="arch">Not in the command line client, but ViewARCH,
                 a web-interface for Arch, has it.</s>
+                <s id="darcs">Yes. (darcs annotate)</s>
                 <s id="monotone">No.</s>
                 <s id="aegis">Yes. aeannotate</s>
                 <s id="opencm">Unknown. Probably not.</s>
@@ -386,6 +403,11 @@ TODO:
                 <s id="svk">Yes.</s>
                 <s id="bitkeeper">No. All changes are made repository-wide.</s>
                 <s id="arch">
+                    It is possible to commit only a certain directory. 
+                    However, one must check out the entire repository as a
+                    whole.
+                </s>
+                <s id="darcs">
                     It is possible to commit only a certain directory. 
                     However, one must check out the entire repository as a
                     whole.
@@ -429,6 +451,9 @@ TODO:
                 <s id="arch">
                     Yes, using "tla changes".
                 </s>
+                <s id="darcs">
+                    Yes, using "darcs whatsnew".
+                </s>
                 <s id="aegis">Yes. Using aediff</s>
                 <s id="monotone">Yes. In a similar fashion to CVS.</s>
                 <s id="opencm">Yes. Using cm diff</s>
@@ -461,6 +486,9 @@ TODO:
                 <s id="bitkeeper">Yes. It is possible to have a per-file
                     commit message</s>
                 <s id="arch">
+                    No.
+                </s>
+                <s id="darcs">
                     No.
                 </s>
                 <s id="monotone">
@@ -525,6 +553,12 @@ TODO:
                     client also supplies a reference page. However, some of 
                     the documentation is out of date or incomplete.
                 </s>
+                <s id="darcs">
+                    Good. The manual contains a brief tutorial and a solid
+                    reference.  Every sub-command can print its usage.
+                    Because the command-set is small and the model is
+                    simple, many users find it easy to get started.
+                </s>
                 <s id="bitkeeper">
                     Very good. There is a comprehensive help at the BitKeeper
                     site. Each command is documented in its own man page, 
@@ -579,6 +613,12 @@ TODO:
                     protocols (FTP, SFTP, WebDAV, etc.). The arch client
                     is written in C, and is portable across UNIX systems
                     (and on Win32 only with a UNIX emulation layer).
+                </s>
+                <s id="darcs">
+                    Very good. darcs requires few external libraries,
+                    however you need the Glasgow Haskell Compiler if you
+                    cannot find a binary. To start working, just "darcs
+                    init".
                 </s>
                 <s id="bitkeeper">
                     Good. All that is required is downloading a binary
@@ -683,6 +723,12 @@ TODO:
                     Aliasing of commands is possible so it it may be possible
                     to make it more compatible.
                 </s>
+                <s id="darcs">
+                    The command set is fairly compact and the core commands
+                    are easy to understand.  Follows CVS in a few places,
+                    but since the model is different most commands are
+                    unique.
+                </s>
                 <s id="monotone">
                     Tries to follow CVS conventions, but deviates where there
                     is a different design.
@@ -730,6 +776,10 @@ TODO:
                     filesystem server. Currently supported protocols include
                     FTP, SFTP, WebDAV (remote file access over HTTP), 
                     as well as any remote filesystem protocol (NFS, SMB).
+                <Very /s>
+                <s id="darcs">
+                    Good. Darcs supports getting patches over HTTP, and
+                    getting and sending patches over SSH and email.
                 </s>
                 <s id="subversion">
                     Very good. The Subversion service can use either 
@@ -819,6 +869,10 @@ TODO:
                     verify). A service can be hosted on any platform
                     that sports a suitable Internet service.
                 </s>
+                <s id="darcs">
+                    Very good. Supports many UNIXes, Mac OS X, and Windows,
+                    and is written in a portable language.
+                </s>
                 <s id="monotone">
                     Excellent. Executable is portable across all UNIXes and
                     Win32.
@@ -883,6 +937,10 @@ TODO:
                     which are 
                     works in progress.
                 </s>
+                <s id="darcs">
+                    <a href="http://abridgegame.org/cgi-bin/darcs.cgi/darcs/">darcs.cgi</a>
+                    is included in the distribution.
+                </s>
                 <s id="aegis">Yes.</s>
                 <s id="monotone">No.</s>
                 <s id="opencm">No.</s>
@@ -929,6 +987,11 @@ TODO:
                     <a href="http://www.hpl.hp.com/personal/Yasushi_Saito/octopy/">Octopy</a> 
                     and possibly others under development.
                 </s>
+                <s id="darcs">
+                    None to speak of.  (There is a modest graphical
+                    interface to a few commands in the distribution, but it
+                    is not being developed currently.)
+                </s>
                 <s id="aegis">
                     There is tkaegis.
                 </s>
@@ -972,6 +1035,7 @@ TODO:
         <compare>
             <s id="cvs">GNU GPL (open source)</s>
             <s id="arch">GNU GPL (open source)</s>
+            <s id="darcs">GNU GPL (open source)</s>
             <s id="bitkeeper">
                 Proprietary, binary only license. Comes in
                 two versions: gratis and pay per use. The gratis license
