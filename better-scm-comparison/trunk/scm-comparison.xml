@@ -57,6 +57,9 @@ TODO:
                 <name>Visual SourceSafe</name>
             </impl>
         </implementations>
+        <timestamp>
+            $Id$
+        </timestamp>
     </meta>
     <contents>
 <section id="main">
