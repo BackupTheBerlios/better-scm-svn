@@ -1010,7 +1010,7 @@ TODO:
             </expl>
             <compare>
                 <s id="cvs">Very good. There are many available GUIs:
-                    WinCVS, Cervisia (for KDE), ViewCVS (web-based),
+                    WinCVS, Cervisia (for KDE),
                     TortoiseCVS (Windows Explorer plug-in).
                 </s>
                 <s id="bitkeeper">Good. BitKeeper ships with several
@@ -1018,7 +1018,7 @@ TODO:
                     of any third-part GUIs.
                 </s>
                 <s id="subversion">Very good. There are many available
-                    GUIs: RapidSVN (cross-platform), ViewCVS (web),
+                    GUIs: RapidSVN (cross-platform),
                     TortoiseSVN (Windows Explorer plug-in), Jsvn (Java), etc.
                     Most of them are still under development.
                 </s>
