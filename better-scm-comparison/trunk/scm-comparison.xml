@@ -657,12 +657,14 @@ TODO:
                     an easy autoconf or RPM/apt-based installation process.
                 </s>
                 <s id="subversion">
-                    A Subversion service requires installing Berkeley 
-                    DB 4.0, as well as either a dedicated Apache module,
-                    or its own proprietary server. The client requires only
-                    the Subversion-specific logic and the Neon WebDAV 
-                    library. Installation of the components is quite
-                    straightforward, but will require some work.
+                    A Subversion service requires installing an Apache 2
+                    module (if one wishes to use HTTP as the underlying
+                    protocol) or its own proprietary server. The client
+                    requires only the Subversion-specific logic and the
+                    Neon WebDAV library (for HTTP). Installation of the
+                    components is quite straightforward, but will require
+                    some work, assuming Subversion does not come prepackaged
+                    for one's system.
                 </s>
                 <s id="superversion">
                     If Java 1.4 is installed, deployment of Superversion
