@@ -11,62 +11,6 @@ use vars qw(@ISA @EXPORT_OK);
 
 @EXPORT_OK = qw(xml_node_contents_to_string);
 
-my @impls = 
-(
-    {
-        'id' => "cvs",
-        'name' => "CVS",
-    },
-    {
-        'id' => "aegis",
-        'name' => "Aegis",
-    },
-    {
-        'id' => "arch",
-        'name' => "Arch",
-    },
-    {
-        'id' => "bitkeeper",
-        'name' => "BitKeeper", 
-    },
-    {
-        'id' => "cmsynergy",
-        'name' => "CMSynergy",
-    },
-    {
-        'id' => "co-op",
-        'name' => "Co-Op",
-    },
-    {
-        'id' => "monotone",
-        'name' => "Monotone",
-    },
-    {
-        'id' => "opencm",
-        'name' => "OpenCM",
-    },
-    {
-        'id' => "perforce",
-        'name' => "Perforce",
-    },
-    {
-        'id' => "subversion",
-        'name' => "Subversion",
-    },
-    {
-        'id' => "svk",
-        'name' => "svk",
-    },
-    {
-        'id' => "vesta",
-        'name' => "Vesta",
-    },
-    {
-        'id' => "vss",
-        'name' => "Visual SourceSafe",
-    },
-);
-
 sub xml_node_contents_to_string
 {
     my $node = shift;
