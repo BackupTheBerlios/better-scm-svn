@@ -4,9 +4,6 @@ PERL_MODULES = $(patsubst %,XML/CompareML/%.pm,Base HTML DocBook)
 
 db: scm-comparison.pdf
 	
-comparison.dtd: gen-dtd.pl
-	perl gen-dtd.pl > $@
-
 comparison.html: render.pl scm-comparison.xml comparison.dtd $(PERL_MODULES)
 	perl render.pl
 
@@ -15,7 +12,6 @@ FILES = bk-license.html \
 		comparison.dtd \
 		comparison.html \
 		Makefile \
-		gen-dtd.pl \
 		render.pl \
 		render-docbook.pl \
 		scm-comparison.xml
