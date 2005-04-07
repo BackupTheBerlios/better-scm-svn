@@ -201,9 +201,9 @@ sub render_section
         $self->render_sys_table_start(@args);
 
         my @systems = ($compare->getChildrenByTagName("s"));
-        my %kv = 
-            (map 
-                { $_->getAttribute("id") => $self->render_s_elem($_) } 
+        my %kv =
+            (map
+                { $_->getAttribute("id") => $self->render_s_elem($_) }
                 @systems
             );
         my @keys_sorted = (sort { $self->sorter($a) <=> $self->sorter($b) } keys(%kv));
