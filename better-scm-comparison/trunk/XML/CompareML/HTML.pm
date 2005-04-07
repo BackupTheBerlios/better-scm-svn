@@ -110,7 +110,7 @@ sub render_section_start
     my $sub_sections = $args{sub_sections};
 
     my $d = $depth+1;
-    $self->out("<h$d><a name=\"$id\" id=\"$id\">$title_string</a></h$d>\n");
+    $self->out("<h$d id=\"$id\">$title_string</h$d>\n");
 
     if ($expl)
     {
