@@ -19,12 +19,6 @@ sub print_header
 <article>
 
 EOF
-    if (defined($self->timestamp()))
-    {
-        print {*{$o}} 
-            "<articleinfo><date>" . $self->timestamp() .
-            "</date></articleinfo>";
-    }
 }
 
 # Do Nothing
@@ -60,6 +54,15 @@ sub render_section_start
     }
 
     $self->out("<title>$title_string</title>\n");
+
+    if ($depth == 0)
+    {
+        if (defined($self->timestamp()))
+        {
+            $self->out("<articleinfo><date>" . $self->timestamp() .
+                "</date></articleinfo>\n");
+        }
+    }
 
     if ($expl)
     {

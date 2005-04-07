@@ -96,8 +96,6 @@ sub process
 {
     my $self = shift;
 
-    $self->print_header();
-
     my $root_elem = $self->{root_elem};
     my ($contents_elem) = $root_elem->getChildrenByTagName("contents");
     my ($top_section_elem) = $contents_elem->getChildrenByTagName("section");
@@ -113,6 +111,10 @@ sub process
 
     $self->{document_text} = "";
     $self->{toc_text} = "";
+
+    # Make sure we print anything only when we finished extracting all
+    # the meta-data.
+    $self->print_header();
 
     $self->start_rendering();
 
