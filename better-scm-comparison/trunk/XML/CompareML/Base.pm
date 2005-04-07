@@ -220,17 +220,13 @@ sub render_section
     foreach my $sub (@sub_sections)
     {
         $self->render_section(
-            'elem' => $sub, 
+            'elem' => $sub,
             'depth' => ($depth+1)
             );
     }
 
     $self->render_section_end(
-        'depth' => $depth,
-        'id' => $id,
-        'title_string' => $title_string,
-        'expl' => $expl,
-        'sub_sections' => \@sub_sections,
+        @args,
     );
 }
 
