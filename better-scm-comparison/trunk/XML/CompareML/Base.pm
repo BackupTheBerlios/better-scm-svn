@@ -18,6 +18,12 @@ sub new
     return $self;
 }
 
+sub findnodes
+{
+    my $self = shift;
+    return $self->root_elem->findnodes(@_);
+}
+
 sub xml_node_contents_to_string
 {
     my $self = shift;
@@ -41,16 +47,23 @@ sub _impl_get_name
 sub get_implementations
 {
     my $self = shift;
-    my ($meta_elem) = $self->root_elem()->getChildrenByTagName("meta");
-    my ($implementations_elem) = $meta_elem->getChildrenByTagName("implementations");
-    my @impls_elems = $implementations_elem->getChildrenByTagName("impl");
-    return [ map { +{'id' => $_->getAttribute("id"), 'name' => $self->_impl_get_name($_)} } @impls_elems ]
+    return 
+        [ 
+            map 
+                { 
+                    +{
+                        'id' => $_->getAttribute("id"), 
+                        'name' => $self->_impl_get_name($_)
+                    } 
+                } 
+            $self->findnodes("/comparison/meta/implementations/impl")
+        ];
 }
 
 sub get_timestamp
 {
     my $self = shift;
-    my @nodes = $self->root_elem->findnodes("/comparison/meta/timestamp");
+    my @nodes = $self->findnodes("/comparison/meta/timestamp");
     if (@nodes)
     {
         return $self->xml_node_contents_to_string($nodes[0]);
