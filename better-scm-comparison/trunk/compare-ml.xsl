@@ -47,6 +47,7 @@ ul.toc
     padding : 0.3em;
 }
 :link:hover { background-color : yellow }
+tt { color : #8A2BE2 /* The BlueViolet Color */ }
 </style>
 </head>
 <body>
@@ -67,6 +68,11 @@ ul.toc
     </xsl:element>
     <xsl:apply-templates select="expl"/>
     <xsl:if test="@id = 'main'">
+        <xsl:if test="/comparison/meta/timestamp">
+            <p><b>Timestamp:</b> 
+                <tt><xsl:value-of select="/comparison/meta/timestamp"/></tt>
+            </p>
+        </xsl:if>
         <ul class="toc">
             <xsl:apply-templates select="section" mode="toc"/>
         </ul>
