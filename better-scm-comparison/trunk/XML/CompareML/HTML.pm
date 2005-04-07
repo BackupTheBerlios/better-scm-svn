@@ -1,5 +1,8 @@
 package XML::CompareML::HTML;
 
+use strict;
+use warnings;
+
 use base 'XML::CompareML::Base';
 
 sub print_header

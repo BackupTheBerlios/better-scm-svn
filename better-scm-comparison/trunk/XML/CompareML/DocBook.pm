@@ -1,5 +1,8 @@
 package XML::CompareML::DocBook;
 
+use strict;
+use warnings;
+
 use XML::LibXML::Common qw(:w3c);
 
 use base 'XML::CompareML::Base';
@@ -164,3 +167,4 @@ sub render_section_end
 }
 
 1;
+

@@ -1,6 +1,7 @@
 package XML::CompareML::Base;
 
 use strict;
+use warnings;
 
 use XML::LibXML;
 
