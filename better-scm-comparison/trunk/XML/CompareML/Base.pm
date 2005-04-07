@@ -7,7 +7,7 @@ use XML::LibXML;
 
 use base qw(Class::Accessor);
 
-__PACKAGE__->mk_accessors(qw(timestamp));
+__PACKAGE__->mk_accessors(qw(timestamp root_elem));
 
 sub new
 {
@@ -41,8 +41,7 @@ sub _impl_get_name
 sub get_implementations
 {
     my $self = shift;
-    my $root_elem = $self->{root_elem};
-    my ($meta_elem) = $root_elem->getChildrenByTagName("meta");
+    my ($meta_elem) = $self->root_elem()->getChildrenByTagName("meta");
     my ($implementations_elem) = $meta_elem->getChildrenByTagName("implementations");
     my @impls_elems = $implementations_elem->getChildrenByTagName("impl");
     return [ map { +{'id' => $_->getAttribute("id"), 'name' => $self->_impl_get_name($_)} } @impls_elems ]
@@ -51,8 +50,7 @@ sub get_implementations
 sub get_timestamp
 {
     my $self = shift;
-    my $root_elem = $self->{root_elem};
-    my @nodes = $root_elem->findnodes("/comparison/meta/timestamp");
+    my @nodes = $self->root_elem->findnodes("/comparison/meta/timestamp");
     if (@nodes)
     {
         return $self->xml_node_contents_to_string($nodes[0]);
@@ -89,15 +87,14 @@ sub _initialize
     }
     $self->{parser} = $parser;
     $self->{dom} = $dom;
-    $self->{root_elem} = $dom->getDocumentElement();
+    $self->root_elem($dom->getDocumentElement());
 }
 
 sub process
 {
     my $self = shift;
 
-    my $root_elem = $self->{root_elem};
-    my ($contents_elem) = $root_elem->getChildrenByTagName("contents");
+    my ($contents_elem) = $self->root_elem->getChildrenByTagName("contents");
     my ($top_section_elem) = $contents_elem->getChildrenByTagName("section");
 
     my @impls = @{$self->get_implementations()};
