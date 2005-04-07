@@ -7,7 +7,10 @@ use XML::LibXML;
 
 use base qw(Class::Accessor);
 
-__PACKAGE__->mk_accessors(qw(timestamp root_elem impls_indexes impls_names));
+__PACKAGE__->mk_accessors(
+    qw(timestamp root_elem impls_indexes impls_names),
+    qw(parser dom),
+);
 
 sub new
 {
@@ -98,8 +101,8 @@ sub _initialize
     {
         die "output_handle must be specified!";
     }
-    $self->{parser} = $parser;
-    $self->{dom} = $dom;
+    $self->parser($parser);
+    $self->dom($dom);
     $self->root_elem($dom->getDocumentElement());
 }
 
