@@ -63,7 +63,9 @@ tt { color : #8A2BE2 /* The BlueViolet Color */ }
 
 <xsl:template match="section">
     <xsl:element name="h{count(ancestor-or-self::section)}">
-        <a id="{@id}"></a>
+        <xsl:attribute name="id">
+            <xsl:value-of select="@id"/>
+        </xsl:attribute>
         <xsl:value-of select="title"/>
     </xsl:element>
     <xsl:apply-templates select="expl"/>
@@ -107,8 +109,12 @@ tt { color : #8A2BE2 /* The BlueViolet Color */ }
 <xsl:template match="s">
  <tr>
  <td class="sys"><xsl:value-of select="key('impl', @id)/name"/></td>
- <td class="desc"><xsl:value-of select="."/></td>
+ <td class="desc"><xsl:apply-templates/></td>
  </tr>
+</xsl:template>
+
+<xsl:template match="a">
+    <a href="{@href}"><xsl:apply-templates/></a>
 </xsl:template>
 
 </xsl:stylesheet>
