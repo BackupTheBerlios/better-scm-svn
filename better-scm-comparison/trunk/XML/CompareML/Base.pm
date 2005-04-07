@@ -7,7 +7,7 @@ use XML::LibXML;
 
 use base qw(Class::Accessor);
 
-__PACKAGE__->mk_accessors(qw(timestamp root_elem));
+__PACKAGE__->mk_accessors(qw(timestamp root_elem impls_indexes));
 
 sub new
 {
@@ -111,11 +111,10 @@ sub process
     my ($top_section_elem) = $contents_elem->getChildrenByTagName("section");
 
     my @impls = @{$self->get_implementations()};
-    my %impls_to_indexes = (map { $impls[$_]->{'id'} => $_ } (0 .. $#impls));
     my %names = (map { $_->{'id'} => $_->{'name'} } @impls);
 
     $self->{impls} = \@impls;
-    $self->{impls_to_indexes} = \%impls_to_indexes;
+    $self->impls_indexes(+{ map { $impls[$_]->{'id'} => $_ } (0 .. $#impls) });
     $self->{impl_names} = \%names;
     $self->timestamp($self->get_timestamp());
 
@@ -149,7 +148,7 @@ sub sorter
     my $self = shift;
     my $impl = shift;
 
-    my $indexes = $self->{impls_to_indexes};
+    my $indexes = $self->impls_indexes();
 
     if (!exists($indexes->{$impl}))
     {
