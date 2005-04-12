@@ -1,10 +1,11 @@
 all: comparison.html 
 
-PERL_MODULES = $(patsubst %,XML/CompareML/%.pm,Base HTML DocBook)
-
 db: scm-comparison.pdf
+
+comparison.dtd: gen-dtd.pl
+	perl $< > $@
 	
-comparison.html: render.pl scm-comparison.xml comparison.dtd $(PERL_MODULES)
+comparison.html: render.pl scm-comparison.xml comparison.dtd
 	perl render.pl
 
 FILES = bk-license.html \
