@@ -12,12 +12,11 @@ FILES = bk-license.html \
 		compare-ml.xsl \
 		comparison.dtd \
 		comparison.html \
+		gen-dtd.pl \
 		Makefile \
 		render.pl \
 		render-docbook.pl \
 		scm-comparison.xml
-
-FILES += $(PERL_MODULES)
 
 docbook/scm-comparison.xml: scm-comparison.xml render-docbook.pl $(PERL_MODULES)
 	perl render-docbook.pl
