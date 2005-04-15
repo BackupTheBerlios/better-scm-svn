@@ -1,0 +1,15 @@
+* Make sure the files that are added to the buckets of src/ are present
+in the Subversion repository.
+
+* Comparison: generate a list of systems under comparison/index.html from
+the XML.
+
+* Submit to Open Source Web Designs.
+
+* Make a page for darcs.
+
+* Mention the various implementations of Arch: ArX, tla, Bazaar, Bazaar-NG.
+
+* Create a version control systems to avoid page.
+
+* Make a page for Perforce.
