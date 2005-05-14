@@ -1,0 +1,116 @@
+#include '../template.wml'
+
+<latemp_subject "The Demise of the Gratis BitKeeper Licensing" />
+<latemp_version_control_id "$Id$" />
+
+<p>
+<b>Written at:</b> 12-April-2005<br />
+<b>Updated at:</b> 03-May-2005
+</p>
+
+<p>
+BitMover, <a href="http://www.bitkeeper.com/">BitKeeper</a>'s parent company,
+<a href="http://www.bitkeeper.com/press/2005-04-05.html">announced 
+that it will discontinue</a> the gratis version of BitKeeper intended for 
+development of Open Source Software. The implications of this 
+are layed out in <a href="http://kerneltrap.org/node/4966">this KernelTrap
+editorial</a>. A NewsForge article 
+<a href="http://os.newsforge.com/os/05/04/11/118211.shtml?tid=152&amp;tid=2&amp;tid=25&amp;tid=3">interviews the parties involved in this decision</a> and what
+they think.
+</p>
+
+<p>
+As a result, the <a href="http://subversion.tigris.org/">Subversion</a> 
+developers issued 
+<a href="http://subversion.tigris.org/subversion-linus.html">a statement</a>
+in which they say that Subversion is not a suitable alternative to 
+BitKeeper for the distributed development-model used by the kernel 
+developers, and that Subversion advocates should
+not attempt to convince people to use it instead of the no-longer-available
+BitKeeper.
+</p>
+
+<p>
+One can also refer to <a href="http://kerneltrap.org/node/4968">this thread
+in KernelTrap about "Life after BitKeeper"</a>.
+</p>
+
+<p>
+The implication of all of this is that developers of open source software
+who desire to use BitKeeper to maintain their codebase, will require getting
+a commercial license proper from BitMover (possibly for no charge). Linus 
+Torvalds, the chief developer of the Linux kernel, has announced that he will 
+not take this option, and instead that he is seeking an alternative to 
+BitKeeper for maintaining the Linux kernel.
+</p>
+
+<p>
+These announcements invalidate a large part of what was said about BitKeeper
+and its licensing terms, on this site and elsewhere. The content of the 
+pages here will remain, but a notice will be added to indicate that it
+may no longer be relevant.
+</p>
+
+<h2>Coverage of This Story</h2>
+
+<ul class="links">
+<li>
+<a href="http://kerneltrap.org/node/4966">KernelTrap editorial about the 
+dicontinuation of the gratis BitKeeper</a>
+</li>
+<li>
+<a href="http://developers.slashdot.org/article.pl?sid=05/04/06/140202&amp;tid=163&amp;tid=8&amp;tid=106">Slashdot: No More BitKeeper Linux</a>.
+</li>
+<li>
+<a href="http://linux.slashdot.org/article.pl?sid=05/04/09/2136247&amp;tid=106">Slashdot: Linus Drops Bitkeeper</a>
+</li>
+<li>
+<a href="http://linux.slashdot.org/article.pl?sid=05/04/11/1413232&amp;tid=99&amp;tid=106">Slashdot: BitKeeper Love Triangle: McVoy, Linus and Tridge</a>
+</li>
+<li>
+<a href="http://os.newsforge.com/os/05/04/11/118211.shtml?tid=152&amp;tid=2&amp;ltid=25&amp;tid=3">Newsforge: BitKeeper and Linux: The end of the road?</a>
+</li>
+<li>
+<a href="http://slashdot.org/pollBooth.pl?qid=1269&amp;aid=-1">Slashdot Poll:
+If I were Linus, I would replace BitKeeper with...</a>.
+</li>
+<li>
+<a href="http://lwn.net/Articles/130746/">Linux Weekly News' coverage of the
+story</a> (with comments).
+</li>
+<li>
+<a href="http://www.osnews.com/comment.php?news_id=10223">OSNews.com - No More 
+Free BitKeeper</a>. (with comments).
+</li>
+<li>
+<a href="http://www.theregister.co.uk/2005/04/14/torvalds_attacks_tridgell/">The
+Register - Torvalds knifes Tridgell</a> - a piece about criticism that Linus
+Torvalds voiced against Andrew Tridgell, who was accused by BitMover for 
+attempting to reverse engineer the BitKeeper protocols. (which in turn caused
+the dis-continuation of the gratis BitKeeper licensing).
+</li>
+<li>
+<a href="http://www.theregister.co.uk/2005/04/15/perens_on_torvalds/">The
+Register - 'Cool it, Linus' - Bruce Perens</a> - Bruce Perens, the renowed 
+open-source leader comes to the defence of Andrew Tridgell.
+</li>
+<li>
+<a href="http://software.newsforge.com/article.pl?sid=05/04/25/130207">NewsForge
+- BitKeeper Bon-voyage is a Happy Ending</a> - an 
+opinionated essay by Richard M. Stallman about BitKeeper and its history.
+Here's
+<a href="http://developers.slashdot.org/article.pl?sid=05/04/25/1936225">the
+coverage on Slashdot</a>.
+</li>
+<li>
+<a href="http://www.infoworld.com/article/05/05/02/18OPopenent_1.html">"Linus 
+Torvalds' BitKeeper blunder"</a> - an InfoWorld coverage of the case. Also see
+<a href="http://lwn.net/Articles/134404/">the discussion of the article on
+Linux Weekly News</a>.
+</li>
+<li>
+<a href="http://lwn.net/Articles/132938/">Linux Weekly News - How Tridge 
+Reverse Engineered BitKeeper</a> - a feature along with some discussion.
+</li>
+</ul>
+

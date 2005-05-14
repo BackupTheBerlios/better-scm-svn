@@ -1,0 +1,33 @@
+#include '../template.wml'
+
+<latemp_subject "Better SCM Initiative : Vesta" />
+<latemp_version_control_id "$Id$" />
+
+<h2>Homepage</h2>
+
+<p>
+<a href="http://www.vestasys.org/">http://www.vestasys.org/</a>
+</p>
+
+<h2>Summary</h2>
+
+<p>
+Vesta is a mature software configuration management system that originated
+from an internal use by Digital Equipment Corporation (now Compaq/HP). It 
+is a replacement for both CVS and make and provides more than mundane revison
+control systems. It is fully open-source under the LGPL.
+</p>
+
+<p>
+Vesta is used to build itself, but there's also a make-based bootstrap package
+available that can be used to build it. Vesta was extensively tested on Linux
+(i386 and Alpha AXP) and Compaq Tru64, and is expected to work on other UNIX
+flavours. It remains to be seen whether it can work on Win32-based systems.
+</p>
+
+<h2>Last Update</h2>
+
+<p>
+<b>2005-04-28</b>
+</p>
+
